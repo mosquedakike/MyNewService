@@ -76,6 +76,9 @@ namespace MyNewService
             public int dwWaitHint;
         };
 
+        [DllImport("advapi32.dll", SetLastError = true)]
+        private static extern bool SetServiceStatus(System.IntPtr handle, ref ServiceStatus serviceStatus);
+
         private void eventLog1_EntryWritten(object sender, EntryWrittenEventArgs e)
         {
             
